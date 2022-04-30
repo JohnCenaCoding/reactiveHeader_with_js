@@ -1,0 +1,103 @@
+:root{
+    --text-color:#f0f4f5;
+    --background-color: #263343;
+    --accent-color: #d49466;
+}
+body {
+    margin: 0px;
+    font-family: "Source Sans Pro";
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    /*양쪽 끝에 너무 붙어 있어서*/
+    padding: 8px 12px;
+}
+
+.navbar__logo {
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+.navbar__logo i {
+    color: var(--accent-color);
+    
+}
+
+.navbar__menu{
+    display:flex;
+    list-style: none;
+    /*li 테그가 가지고 있던 padding left 제거 */
+    padding-left: 0;
+}
+
+.navbar__menu li {
+   /*마우스를 올렸을 때 백그라운드 영역을 넓게 만들기 위함 */
+    padding: 8px 12px;
+
+}
+.navbar__menu li:hover {
+    background-color: var(--accent-color);
+    border-radius: 4px;
+}
+
+.navbar__icons {
+    list-style: none;
+    color: var(--text-color);
+    display: flex;
+    padding-left: 14px;
+}
+
+.navbar__icons li{
+   /*너무 붙어있어서 간격 넣기*/
+    padding: 8px 12px;
+}
+.navbar__toogleBtn{
+    display:none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--accent-color);
+}
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        /*너무 화면에 꽉차 있으니 여유 공간 만들기*/
+        padding: 8px 24px;
+    }
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-self: center;
+        width: 100%;
+    }
+    /*넓이가 넓어 졌을 때 텍스트는 자동으로 왼쪽으로 붙음*/
+
+    .navbar__menu li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .navbar__icons {
+        display: none;
+        justify-content: center;
+        width: 100%;
+    
+    }
+    .navbar__toogleBtn {
+        display: block;
+    }
+    .navbar__menu.active,
+    .navbar__icons.active {
+        display: flex;
+    }
+    
+}
